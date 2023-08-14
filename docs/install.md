@@ -35,22 +35,9 @@ docker run -d --name='openbudgeteer' \
     'axelander/openbudgeteer:latest'
 ```
 
-!!! warning "Pre-release notice"
-
-    Below details only apply for `pre-release` and are planned to be released with Update `1.7`.
-
-    ```bash
-    docker run -d --name='openbudgeteer' \
-        -e 'CONNECTION_PROVIDER'='SQLITE' \
-        -e 'CONNECTION_DATABASE'='/srv/openbudgeteer.db' \
-        -v '/my/local/path:/srv'  \
-        -p '6100:80/tcp' \
-        'axelander/openbudgeteer:pre-release'
-    ```
-
 If you don't change the Port Mapping you can access the App with Port `80`. Otherwise like above example it can be accessed with Port `6100`
 
-### docker compose (recommended) 
+### docker compose (recommended)
 
 Below an example how to deploy OpenBudgeteer together with MySql Server and phpMyAdmin for administration.  Please note that user and database need to be available, otherwise the container will not work. See [Database](#database) for more details.
 
@@ -109,58 +96,6 @@ volumes:
   data:
 ```
 
-!!! warning "Pre-release notice"
-
-    PostgreSQL support is currently only available in `pre-release` and is planned to be released with Update `1.7`  
-
-    Below another example how to deploy OpenBudgeteer together with PostgreSQL Server.
-    Please note that role and database `openbudgeteer` will be created with full authority on the `db` container on the first initialization of the database.
-
-    ```yml
-    version: "3"
-    
-    networks:
-      app-global:
-        external: true
-      db-internal:
-    
-    
-    services:
-      openbudgeteer:
-        image: axelander/openbudgeteer
-        container_name: openbudgeteer
-        ports:
-          - 8081:80
-        environment:
-          - CONNECTION_PROVIDER=postgres
-          - CONNECTION_SERVER=openbudgeteer-db
-          - CONNECTION_DATABASE=openbudgeteer
-          - CONNECTION_USER=openbudgeteer
-          - CONNECTION_PASSWORD=My$uP3rS3creTanDstr0ngP4ssw0rD!!!
-          - APPSETTINGS_CULTURE=en-US
-          - APPSETTINGS_THEME=solar
-        depends_on:
-          - db
-        networks:
-          - app-global
-          - db-internal
-    
-      db:
-        image: postgres:alpine
-        container_name: openbudgeteer-db
-        environment:
-          - POSTGRES_USER=openbudgeteer
-          - POSTGRES_PASSWORD=My$uP3rS3creTanDstr0ngP4ssw0rD!!!
-          - POSTGRES_DB=openbudgeteer
-        volumes:
-          - data:/var/lib/postgresql/data
-        networks:
-          - db-internal
-    
-    volumes:
-      data:
-    ```
-
 ### Docker tags
 
 Beside the default `latest` tag there is also a `pre-release` tag available which includes the latest developments. Please note that `pre-release` can contain bugs on web frontend and also on database side.
@@ -172,10 +107,6 @@ In case you want to stick to a specific version there are also tags for each rel
 ## Build and deploy
 
 If you don't want to use Docker you can also build the project on your own and deploy it on a web server like nginx.
-
-!!! warning "Pre-release notice"
-
-    `pre-release` uses .NET SDK 7, hence for below instructions replace `dotnet-sdk-6.0` with `dotnet-sdk-7.0` and `bin/Release/net6.0/linux-x64/publish` with `bin/Release/net7.0/linux-x64/publish`. 
 
 Install .NET SDK 6 for your respective Linux distribution. See [here](https://docs.microsoft.com/en-us/dotnet/core/install/linux) for more details. Below example is for Debian 11
 
