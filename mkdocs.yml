@@ -1,0 +1,39 @@
+site_name: OpenBudgeteer Documentation
+nav:
+    - Home: index.md
+    - Quick Start: quick-start.md  
+    - Install: install.md
+    - Configuration: config.md
+    - How to use: how-to.md  
+theme:
+  name: material
+  logo: assets/icon.png
+  features:
+    - toc.integrate
+    - content.code.copy
+  palette:
+      scheme: slate
+      primary: blue grey
+      accent: teal
+
+extra:
+  version:
+    provider: mike
+    default: latest
+
+plugins:
+  - search
+  - glightbox:
+      zoomable: true
+      draggable: true
+      skip_classes:
+        - skip-lightbox
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
