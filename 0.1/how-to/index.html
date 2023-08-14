@@ -1,0 +1,521 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../config/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.21">
+    
+    
+      
+        <title>How to use - OpenBudgeteer Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.eebd395e.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#how-to-use" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="OpenBudgeteer Documentation" class="md-header__button md-logo" aria-label="OpenBudgeteer Documentation" data-md-component="logo">
+      
+  <img src="../assets/icon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OpenBudgeteer Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              How to use
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="OpenBudgeteer Documentation" class="md-nav__button md-logo" aria-label="OpenBudgeteer Documentation" data-md-component="logo">
+      
+  <img src="../assets/icon.png" alt="logo">
+
+    </a>
+    OpenBudgeteer Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quick-start/" class="md-nav__link">
+        Quick Start
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/" class="md-nav__link">
+        Install
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config/" class="md-nav__link">
+        Configuration
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          How to use
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        How to use
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#bucket-budgeting-in-openbudgeteer-explained" class="md-nav__link">
+    Bucket budgeting in OpenBudgeteer explained
+  </a>
+  
+    <nav class="md-nav" aria-label="Bucket budgeting in OpenBudgeteer explained">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-a-bucket" class="md-nav__link">
+    What is a bucket?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bucket-types-in-openbudgeteer" class="md-nav__link">
+    Bucket types in OpenBudgeteer
+  </a>
+  
+    <nav class="md-nav" aria-label="Bucket types in OpenBudgeteer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#standard-bucket" class="md-nav__link">
+    Standard Bucket
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monthly-expense" class="md-nav__link">
+    Monthly expense
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expense-every-x-months" class="md-nav__link">
+    Expense every X months
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#save-x-until-y-date" class="md-nav__link">
+    Save X until Y date
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-started" class="md-nav__link">
+    Get started
+  </a>
+  
+    <nav class="md-nav" aria-label="Get started">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-bank-account" class="md-nav__link">
+    Create bank account
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-buckets" class="md-nav__link">
+    Create buckets
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#import-transactions" class="md-nav__link">
+    Import Transactions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bucket-assignment" class="md-nav__link">
+    Bucket Assignment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bucket-history" class="md-nav__link">
+    Bucket History
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="how-to-use">How to use</h1>
+<h2 id="bucket-budgeting-in-openbudgeteer-explained">Bucket budgeting in OpenBudgeteer explained</h2>
+<p>There are several ways how to do finance planning, one of them is the so called "bucket budgeting".</p>
+<p>In the old-fashioned way you usually only categorize your bank transactions to get a historical overview on how much money you have spent in the past. Bucket budgeting goes the other way around and tries to set expectations on how much money you will spend on certain categories, so that you know how much budget is needed and how much you can spend.</p>
+<h3 id="what-is-a-bucket">What is a bucket?</h3>
+<p>A bucket can be seen as kind of a category. Its naming defines for what kind of expense the money will be spent in future, optionally it can have a due date in case you know when the expense will happen. Another use case for a bucket can be a deposit for long-term savings. Overall you can put money into buckets and later on take it out to finance the respecitve expense or to move it to another bucket.</p>
+<p>Putting money in and out from buckets happens in OpenBudgeteer in an automated way, but can be also done manually. This will be explained over the next sections.</p>
+<h3 id="bucket-types-in-openbudgeteer">Bucket types in OpenBudgeteer</h3>
+<p>Currently OpenBudgeteer defines 4 types of buckets:</p>
+<h4 id="standard-bucket">Standard Bucket</h4>
+<p>This is the default type in OpenBudgeteer and just a plain bucket without any specfic requirements or configruations.</p>
+<h4 id="monthly-expense">Monthly expense</h4>
+<p>Typically you have expenses that you have to pay on a monthly basis where you also know the exact amount like rent, insurance costs or liquidation of loans. For such use cases the bucket type "Monthly expense" can be used. For every month it wants to have the configured target amount and based on this "Want" you put money into it. Once you assign a bank transaction to this bucket, the money will be taken out again and typically the balance is 0. For the next month the same procedure starts again.</p>
+<p>But there can be some cases where you just don't know how much money you will spend in this month like for groceries, car costs, free time costs etc. Here you make an estimate on how much money will be required for every month with a fixed value. If this estimate variates you rather want to use the <strong>Standard Bucket</strong>. At the end of the month the balance should be positve or at least 0, if it is negative consider moving money from anthoer bucket into this one.</p>
+<h4 id="expense-every-x-months">Expense every X months</h4>
+<p>All in all this bucket type is equal to <strong>Monthly expense</strong> with the difference that the expense will not happen every month. Usually this type is used for expenses that occur on a yearly or quarterly base, but of course you can set your own occurance.</p>
+<p>Creating such a bucket requires input on the target amount, the number of months (that's the X) and the first target date where the expense is expected.</p>
+<p>Based on these details and its balance OpenBudgeteer will calculate how much money you should put into this bucket for the current month. The required amount will be distributed over the whole timeline which means every month you put small amounts into this bucket and in the final month you have enough savings to finance the expense. The progress will be visualized with a progress bar in OpenBudgeteer.</p>
+<p>After that the next interation starts and for every month the expected amount will be calculated again. There is no need to update the target date in the config for this bucket (as said it's only for the first target date).</p>
+<h4 id="save-x-until-y-date">Save X until Y date</h4>
+<p>This bucket type you use if you want to save a fixed amount of money every month until a specific target date.</p>
+<h2 id="get-started">Get started</h2>
+<h3 id="create-bank-account">Create bank account</h3>
+<p>The best way to start with OpenBudgeteer is to create at least one bank account on the <code>Account Page</code>. There is not much to configure here, just enter a name and that's it.</p>
+<p><a class="glightbox" href="../assets/screenshot2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Screenshot 2" src="../assets/screenshot2.png" /></a></p>
+<h3 id="create-buckets">Create buckets</h3>
+<p>With creating your buckets you immediately make your finance planning. Think about what kind of expenses you have, how you could group them and how they occur.</p>
+<p>On the first level you create a bucket group which is just a clustering of similar buckets. There is no specfic logic behind that, it's just for visual purposes.</p>
+<p>Once you have some Transactions imported you can start creating Buckets on the <code>Bucket Page</code>. If you don't know what kind of Buckets you need, maybe start with some Buckets for your monthly or even yearly expenses like Car Insurance, Property Taxes, Instalments etc. and Buckets for your regular needs like Groceries or Gas. You can also create a Bucket for your next big trip by putting some money into it every month.</p>
+<p>If you are happy with your setup, put some money into your Buckets. You can do it manually or automatically if a Bucket has a Want for the current month.</p>
+<h3 id="import-transactions">Import Transactions</h3>
+<p>After that export some Transactions from your Online Banking and import the data using <code>Import Page</code>. At the moment it support CSV files only but you can individually set the characters for delimiter and text qualifier. The respective settings and other options are shown once the CSV file has been uploaded.</p>
+<p><a class="glightbox" href="../assets/screenshot3.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Screenshot 3" src="../assets/screenshot3.png" /></a></p>
+<p>You also need to create an initial Transaction which includes the Bank Balance on a certain date. It should be the previous day of the very first imported Transaction. You can do this on the <code>Transaction Page</code>.</p>
+<p>Example:</p>
+<p>You have imported all Transactions starting 2020-01-01. To have the right Balances create a Transaction for 2019-12-31 and add as amount the Account Balance of this day. You can mark this Transaction as <code>Income</code> (see more explanation in section <code>Bucket Assignment</code>).</p>
+<p><a class="glightbox" href="../assets/screenshot4.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Screenshot 4" src="../assets/screenshot4.png" /></a></p>
+<h3 id="bucket-assignment">Bucket Assignment</h3>
+<p>In the final step you assign your Transactions to certain Buckets. Go back to the <code>Transaction Page</code>, edit a Transaction and select an appropriate Bucket. You can also do a mass edit. If a Transaction belongs to more than one Bucket just reduce the assigned amount and you get automatically the option to assign the remaining amount to another Bucket.</p>
+<p><a class="glightbox" href="../assets/screenshot5.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Screenshot 5" src="../assets/screenshot5.png" /></a></p>
+<p>Transactions which represent your (monthly) income can be assigned to the pre-defined <code>Income</code> Bucket. If you have transferred money from one Account to another you can use the <code>Transfer</code> Bucket. Please ensure that all <code>Transfer</code> Transaction have in total a 0 Balance to prevent data inconsistency and wrong calculations.</p>
+<p>Once all Transactions are assigned properly you can go back to the Bucket Overview to see if your Budget management is still fine or if you need to do some movements. You should always ensure that your Buckets don't have a negative Balance. Also your <code>Remaining Budget</code> should never be negative.</p>
+<h3 id="bucket-history">Bucket History</h3>
+<p>OpenBudgeteer has a built-in versioning for Buckets which enables a proper history view on previous months. If you modify a Bucket, like changing the Type or the Target Amount, it will create a new version for the current selected month. It is not recommended to change a Bucket in the past, a change between two Bucket Version is prevented.</p>
+<p>If you close a Bucket it will be marked as <code>Inactive</code> for the next month. This can be only done if the Bucket Balance is 0 to prevent wrong calculations.</p>
+<p><a class="glightbox" href="../assets/screenshot6.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Screenshot 6" src="../assets/screenshot6.png" /></a></p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["toc.integrate", "content.code.copy"], "search": "../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.220ee61c.min.js"></script>
+      
+    
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</html>
