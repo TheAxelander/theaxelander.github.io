@@ -235,30 +235,6 @@ For MySQL:
   },
   "AllowedHosts": "*"
 }
-```
-!!! warning "Pre-release notice"
-
-    PostgreSQL support is currently only available in `pre-release` and is planned to be released with Update `1.7`  
-    
-    For Postgres:
-    
-    ```json
-    {
-      "CONNECTION_PROVIDER": "postgresql",
-      "CONNECTION_DATABASE": "openbudgeteer",
-      "CONNECTION_SERVER": "192.168.178.100",
-      "CONNECTION_USER": "openbudgeteer",
-      "CONNECTION_PASSWORD": "openbudgeteer",
-      "Logging": {
-        "LogLevel": {
-          "Default": "Information",
-          "Microsoft": "Warning",
-          "Microsoft.Hosting.Lifetime": "Information"
-        }
-      },
-      "AllowedHosts": "*"
-    }
-    ```
 
 For Sqlite:
 
