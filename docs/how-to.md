@@ -1,5 +1,9 @@
 ﻿# How to use
 
+!!! warning "Work in progress"
+
+    This section is currently under construction
+
 ## Bucket budgeting in OpenBudgeteer explained
 
 There are several ways how to do finance planning, one of them is the so called "bucket budgeting".
