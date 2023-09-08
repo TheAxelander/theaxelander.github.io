@@ -1,4 +1,4 @@
-﻿# Configuration
+# Configuration
 
 Settings can be defined via Docker environment variables or via `appsettings.json` file which is located in the root folder of the application.
 
@@ -77,11 +77,4 @@ An easy way to do that would be to use something like `phpmyadmin`. Create a new
 
 #### PostgreSQL
 
-  Please consider the container-per database PostgreSQL pattern and let container init take care of the database creation, or create the role and database yourself. In this case, the database created by you must be empty, the role must exist, and should have CREATE permission for all objects in the public schema of the target database.
-
-## App Settings
-
-| Variable            | Description                                                                                                | Default                 |
-|---------------------|------------------------------------------------------------------------------------------------------------|-------------------------|
-| APPSETTINGS_CULTURE | Localization identifier to set things like Currency, Date and Number Format. Must be a BCP 47 language tag | en-US                   |
-| APPSETTINGS_THEME   | Sets the [Bootswatch](https://bootswatch.com) Theme that will be used.                                     | default                 |
+Please consider the container-per database PostgreSQL pattern and let container init take care of the database creation, or create the role and database yourself. In this case, the database created by you must be empty, the role must exist, and should have CREATE permission for all objects in the public schema of the target database.
