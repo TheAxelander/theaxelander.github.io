@@ -6,9 +6,9 @@ For a quick ramp-up up of OpenBudgeteer using Docker and Sqlite use below comman
 
 ```bash
 docker run -d --name='openbudgeteer' \
-    -e 'CONNECTION_PROVIDER'='sqlite' \
-    -v '/my/local/path:/app/database'  \
-    -p '6100:80/tcp' \
+    -e 'CONNECTION_PROVIDER'='SQLITE' \
+    -e 'CONNECTION_DATABASE'='/srv/openbudgeteer.db' \
+    -v 'data:/srv'  \
     'axelander/openbudgeteer'
 ```
 
@@ -22,9 +22,10 @@ services:
     image: axelander/openbudgeteer
     container_name: openbudgeteer
     environment:
-      - CONNECTION_PROVIDER=sqlite
+      - CONNECTION_PROVIDER=SQLITE
+      - CONNECTION_DATABASE=/srv/openbudgeteer.db
     volumes:
-      - data:/app/database
+      - data:/srv
         
 volumes:
   data:

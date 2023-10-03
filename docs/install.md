@@ -14,7 +14,7 @@ To start a container use a `docker run` command like below. Please note that use
 
 ```bash
 docker run -d --name='openbudgeteer' \
-    -e 'CONNECTION_PROVIDER'='mysql' \
+    -e 'CONNECTION_PROVIDER'='MYSQL' \
     -e 'CONNECTION_SERVER'='192.168.178.100' \
     -e 'CONNECTION_PORT'='3306' \
     -e 'CONNECTION_DATABASE'='MyOpenBudgeteerDb' \
@@ -22,17 +22,18 @@ docker run -d --name='openbudgeteer' \
     -e 'CONNECTION_PASSWORD'='MyOpenBudgeteerPassword' \
     -e 'CONNECTION_MYSQL_ROOT_PASSWORD'='MyRootPassword' \
     -p '6100:80/tcp' \
-    'axelander/openbudgeteer:latest'
+    'axelander/openbudgeteer'
 ```
 
 Alternatively you can use a local `Sqlite` database using the below settings:
 
 ```bash
 docker run -d --name='openbudgeteer' \
-    -e 'CONNECTION_PROVIDER'='sqlite' \
-    -v '/my/local/path:/app/database'  \
+    -e 'CONNECTION_PROVIDER'='SQLITE' \
+    -e 'CONNECTION_DATABASE'='/srv/openbudgeteer.db' \
+    -v '/my/local/path:/srv'  \
     -p '6100:80/tcp' \
-    'axelander/openbudgeteer:latest'
+    'axelander/openbudgeteer'
 ```
 
 If you don't change the Port Mapping you can access the App with Port `80`. Otherwise like above example it can be accessed with Port `6100`
@@ -96,6 +97,54 @@ volumes:
   data:
 ```
 
+Below another example how to deploy OpenBudgeteer together with PostgreSQL Server.
+Please note that role and database `openbudgeteer` will be created with full authority on the `db` container on the first initialization of the database.
+
+```yml
+version: "3"
+
+networks:
+  app-global:
+    external: true
+  db-internal:
+
+
+services:
+  openbudgeteer:
+    image: axelander/openbudgeteer
+    container_name: openbudgeteer
+    ports:
+      - 8081:80
+    environment:
+      - CONNECTION_PROVIDER=postgres
+      - CONNECTION_SERVER=openbudgeteer-db
+      - CONNECTION_DATABASE=openbudgeteer
+      - CONNECTION_USER=openbudgeteer
+      - CONNECTION_PASSWORD=My$uP3rS3creTanDstr0ngP4ssw0rD!!!
+      - APPSETTINGS_CULTURE=en-US
+      - APPSETTINGS_THEME=solar
+    depends_on:
+      - db
+    networks:
+      - app-global
+      - db-internal
+
+  db:
+    image: postgres:alpine
+    container_name: openbudgeteer-db
+    environment:
+      - POSTGRES_USER=openbudgeteer
+      - POSTGRES_PASSWORD=My$uP3rS3creTanDstr0ngP4ssw0rD!!!
+      - POSTGRES_DB=openbudgeteer
+    volumes:
+      - data:/var/lib/postgresql/data
+    networks:
+      - db-internal
+
+volumes:
+  data:
+```
+
 ### Docker tags
 
 Beside the default `latest` tag there is also a `pre-release` tag available which includes the latest developments. Please note that `pre-release` can contain bugs on web frontend and also on database side.
@@ -108,7 +157,7 @@ In case you want to stick to a specific version there are also tags for each rel
 
 If you don't want to use Docker you can also build the project on your own and deploy it on a web server like nginx.
 
-Install .NET SDK 6 for your respective Linux distribution. See [here](https://docs.microsoft.com/en-us/dotnet/core/install/linux) for more details. Below example is for Debian 11
+Install .NET SDK 7 for your respective Linux distribution. See [here](https://docs.microsoft.com/en-us/dotnet/core/install/linux) for more details. Below example is for Debian 11
 
 ```bash
 wget https://packages.microsoft.com/config/debian/11/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
@@ -118,7 +167,7 @@ rm packages-microsoft-prod.deb
 sudo apt-get update; \
   sudo apt-get install -y apt-transport-https && \
   sudo apt-get update && \
-  sudo apt-get install -y dotnet-sdk-6.0 
+  sudo apt-get install -y dotnet-sdk-7.0 
 ```
 
 Install nginx
@@ -141,7 +190,7 @@ dotnet publish -c Release --self-contained -r linux-x64
 Modify `appsettings.json` and enter credentials for a running database server, or use sqlite
 
 ```bash
-cd bin/Release/net6.0/linux-x64/publish
+cd bin/Release/net7.0/linux-x64/publish
 
 nano appsettings.json
 ```
@@ -166,6 +215,27 @@ For MySQL:
   },
   "AllowedHosts": "*"
 }
+```
+
+For Postgres:
+
+```json
+{
+  "CONNECTION_PROVIDER": "postgresql",
+  "CONNECTION_DATABASE": "openbudgeteer",
+  "CONNECTION_SERVER": "192.168.178.100",
+  "CONNECTION_USER": "openbudgeteer",
+  "CONNECTION_PASSWORD": "openbudgeteer",
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft": "Warning",
+      "Microsoft.Hosting.Lifetime": "Information"
+    }
+  },
+  "AllowedHosts": "*"
+}
+```
 
 For Sqlite:
 
