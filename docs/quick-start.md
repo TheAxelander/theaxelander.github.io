@@ -33,4 +33,4 @@ volumes:
 
 !!! info "ARM platform"
 
-    For ARM based systems please append -arm64 to the tag, e.g. latest-arm64
+    For ARM based systems please append -arm64 to the tag, e.g. pre-release-arm64
