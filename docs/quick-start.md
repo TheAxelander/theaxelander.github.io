@@ -30,3 +30,7 @@ services:
 volumes:
   data:
 ```
+
+!!! info "ARM platform"
+
+    For ARM based systems please append -arm64 to the tag, e.g. latest-arm64
