@@ -9,7 +9,7 @@ docker run -d --name='openbudgeteer' \
     -e 'CONNECTION_PROVIDER'='SQLITE' \
     -e 'CONNECTION_DATABASE'='/srv/openbudgeteer.db' \
     -v 'data:/srv'  \
-    'axelander/openbudgeteer'
+    'axelander/openbudgeteer:pre-release'
 ```
 
 ## docker compose
@@ -19,7 +19,7 @@ version: "3"
 
 services:
   openbudgeteer:
-    image: axelander/openbudgeteer
+    image: axelander/openbudgeteer:pre-release
     container_name: openbudgeteer
     environment:
       - CONNECTION_PROVIDER=SQLITE
