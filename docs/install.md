@@ -21,7 +21,7 @@ docker run -d --name='openbudgeteer' \
     -e 'CONNECTION_USER'='MyOpenBudgeteerUser' \
     -e 'CONNECTION_PASSWORD'='MyOpenBudgeteerPassword' \
     -e 'CONNECTION_MYSQL_ROOT_PASSWORD'='MyRootPassword' \
-    -p '6100:80/tcp' \
+    -p '6100:8080/tcp' \
     'axelander/openbudgeteer'
 ```
 
@@ -32,7 +32,7 @@ docker run -d --name='openbudgeteer' \
     -e 'CONNECTION_PROVIDER'='SQLITE' \
     -e 'CONNECTION_DATABASE'='/srv/openbudgeteer.db' \
     -v '/my/local/path:/srv'  \
-    -p '6100:80/tcp' \
+    -p '6100:8080/tcp' \
     'axelander/openbudgeteer'
 ```
 
@@ -56,7 +56,7 @@ services:
     image: axelander/openbudgeteer
     container_name: openbudgeteer
     ports:
-      - 8081:80
+      - 8081:8080
     environment:
       - CONNECTION_PROVIDER=MYSQL
       - CONNECTION_SERVER=openbudgeteer-mysql
@@ -114,7 +114,7 @@ services:
     image: axelander/openbudgeteer
     container_name: openbudgeteer
     ports:
-      - 8081:80
+      - 8081:8080
     environment:
       - CONNECTION_PROVIDER=postgres
       - CONNECTION_SERVER=openbudgeteer-db
@@ -157,7 +157,7 @@ In case you want to stick to a specific version there are also tags for each rel
 
 If you don't want to use Docker you can also build the project on your own and deploy it on a web server like nginx.
 
-Install .NET SDK 7 for your respective Linux distribution. See [here](https://docs.microsoft.com/en-us/dotnet/core/install/linux) for more details. Below example is for Debian 11
+Install .NET SDK 8 for your respective Linux distribution. See [here](https://docs.microsoft.com/en-us/dotnet/core/install/linux) for more details. Below example is for Debian 11
 
 ```bash
 wget https://packages.microsoft.com/config/debian/11/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
@@ -167,7 +167,7 @@ rm packages-microsoft-prod.deb
 sudo apt-get update; \
   sudo apt-get install -y apt-transport-https && \
   sudo apt-get update && \
-  sudo apt-get install -y dotnet-sdk-7.0 
+  sudo apt-get install -y dotnet-sdk-8.0 
 ```
 
 Install nginx
@@ -190,7 +190,7 @@ dotnet publish -c Release --self-contained -r linux-x64
 Modify `appsettings.json` and enter credentials for a running database server, or use sqlite
 
 ```bash
-cd bin/Release/net7.0/linux-x64/publish
+cd bin/Release/net8.0/linux-x64/publish
 
 nano appsettings.json
 ```
