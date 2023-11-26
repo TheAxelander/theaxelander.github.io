@@ -384,7 +384,7 @@
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span>-e<span class="w"> </span><span class="s1">&#39;CONNECTION_USER&#39;</span><span class="o">=</span><span class="s1">&#39;MyOpenBudgeteerUser&#39;</span><span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span>-e<span class="w"> </span><span class="s1">&#39;CONNECTION_PASSWORD&#39;</span><span class="o">=</span><span class="s1">&#39;MyOpenBudgeteerPassword&#39;</span><span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span>-e<span class="w"> </span><span class="s1">&#39;CONNECTION_MYSQL_ROOT_PASSWORD&#39;</span><span class="o">=</span><span class="s1">&#39;MyRootPassword&#39;</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span>-p<span class="w"> </span><span class="s1">&#39;6100:80/tcp&#39;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span>-p<span class="w"> </span><span class="s1">&#39;6100:8080/tcp&#39;</span><span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="s1">&#39;axelander/openbudgeteer&#39;</span>
 </code></pre></div>
 <p>Alternatively you can use a local <code>Sqlite</code> database using the below settings:</p>
@@ -392,7 +392,7 @@
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span>-e<span class="w"> </span><span class="s1">&#39;CONNECTION_PROVIDER&#39;</span><span class="o">=</span><span class="s1">&#39;SQLITE&#39;</span><span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span>-e<span class="w"> </span><span class="s1">&#39;CONNECTION_DATABASE&#39;</span><span class="o">=</span><span class="s1">&#39;/srv/openbudgeteer.db&#39;</span><span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span>-v<span class="w"> </span><span class="s1">&#39;/my/local/path:/srv&#39;</span><span class="w">  </span><span class="se">\</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span>-p<span class="w"> </span><span class="s1">&#39;6100:80/tcp&#39;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span>-p<span class="w"> </span><span class="s1">&#39;6100:8080/tcp&#39;</span><span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="s1">&#39;axelander/openbudgeteer&#39;</span>
 </code></pre></div>
 <p>If you don't change the Port Mapping you can access the App with Port <code>80</code>. Otherwise like above example it can be accessed with Port <code>6100</code></p>
@@ -411,7 +411,7 @@
 <a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>    image: axelander/openbudgeteer
 <a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>    container_name: openbudgeteer
 <a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>    ports:
-<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>      - 8081:80
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>      - 8081:8080
 <a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>    environment:
 <a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>      - CONNECTION_PROVIDER=MYSQL
 <a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>      - CONNECTION_SERVER=openbudgeteer-mysql
@@ -466,7 +466,7 @@ Please note that role and database <code>openbudgeteer</code> will be created wi
 <a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    image: axelander/openbudgeteer
 <a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>    container_name: openbudgeteer
 <a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>    ports:
-<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>      - 8081:80
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>      - 8081:8080
 <a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>    environment:
 <a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>      - CONNECTION_PROVIDER=postgres
 <a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>      - CONNECTION_SERVER=openbudgeteer-db
@@ -502,7 +502,7 @@ Please note that role and database <code>openbudgeteer</code> will be created wi
 <p>In case you want to stick to a specific version there are also tags for each release available, like <code>1.4</code>, <code>1.5</code>, <code>1.5.1</code> etc.</p>
 <h2 id="build-and-deploy">Build and deploy</h2>
 <p>If you don't want to use Docker you can also build the project on your own and deploy it on a web server like nginx.</p>
-<p>Install .NET SDK 7 for your respective Linux distribution. See <a href="https://docs.microsoft.com/en-us/dotnet/core/install/linux">here</a> for more details. Below example is for Debian 11</p>
+<p>Install .NET SDK 8 for your respective Linux distribution. See <a href="https://docs.microsoft.com/en-us/dotnet/core/install/linux">here</a> for more details. Below example is for Debian 11</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>wget<span class="w"> </span>https://packages.microsoft.com/config/debian/11/packages-microsoft-prod.deb<span class="w"> </span>-O<span class="w"> </span>packages-microsoft-prod.deb
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>sudo<span class="w"> </span>dpkg<span class="w"> </span>-i<span class="w"> </span>packages-microsoft-prod.deb
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>rm<span class="w"> </span>packages-microsoft-prod.deb
@@ -510,7 +510,7 @@ Please note that role and database <code>openbudgeteer</code> will be created wi
 <a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>update<span class="p">;</span><span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">  </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>apt-transport-https<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">  </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">  </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>dotnet-sdk-7.0<span class="w"> </span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">  </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>dotnet-sdk-8.0<span class="w"> </span>
 </code></pre></div>
 <p>Install nginx</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>nginx
@@ -524,7 +524,7 @@ Please note that role and database <code>openbudgeteer</code> will be created wi
 <a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>dotnet<span class="w"> </span>publish<span class="w"> </span>-c<span class="w"> </span>Release<span class="w"> </span>--self-contained<span class="w"> </span>-r<span class="w"> </span>linux-x64
 </code></pre></div>
 <p>Modify <code>appsettings.json</code> and enter credentials for a running database server, or use sqlite</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nb">cd</span><span class="w"> </span>bin/Release/net7.0/linux-x64/publish
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nb">cd</span><span class="w"> </span>bin/Release/net8.0/linux-x64/publish
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
 <a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>nano<span class="w"> </span>appsettings.json
 </code></pre></div>
