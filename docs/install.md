@@ -12,7 +12,7 @@ You can use the pre-built Docker image from [Docker Hub](https://hub.docker.com/
 
 To start a container use a `docker run` command like below. Please note that user and database need to be available, otherwise the container will not work. See [Database](#database) for more details.
 
-```bash
+``` bash
 docker run -d --name='openbudgeteer' \
     -e 'CONNECTION_PROVIDER'='MYSQL' \
     -e 'CONNECTION_SERVER'='192.168.178.100' \
@@ -27,7 +27,7 @@ docker run -d --name='openbudgeteer' \
 
 Alternatively you can use a local `Sqlite` database using the below settings:
 
-```bash
+``` bash
 docker run -d --name='openbudgeteer' \
     -e 'CONNECTION_PROVIDER'='SQLITE' \
     -e 'CONNECTION_DATABASE'='/srv/openbudgeteer.db' \
@@ -42,7 +42,7 @@ If you don't change the Port Mapping you can access the App with Port `80`. Othe
 
 Below an example how to deploy OpenBudgeteer together with MySql Server and phpMyAdmin for administration.  Please note that user and database need to be available, otherwise the container will not work. See [Database](#database) for more details.
 
-```yml
+``` yml
 version: "3"
 
 networks:
@@ -119,7 +119,7 @@ volumes:
 Below another example how to deploy OpenBudgeteer together with PostgreSQL Server.
 Please note that role and database `openbudgeteer` will be created with full authority on the `db` container on the first initialization of the database.
 
-```yml
+``` yml
 version: "3"
 
 networks:
@@ -196,7 +196,7 @@ If you don't want to use Docker you can also build the project on your own and d
 
 Install .NET SDK 8 for your respective Linux distribution. See [here](https://docs.microsoft.com/en-us/dotnet/core/install/linux) for more details. Below example is for Debian 11
 
-```bash
+``` bash
 wget https://packages.microsoft.com/config/debian/11/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
 rm packages-microsoft-prod.deb
@@ -209,7 +209,7 @@ sudo apt-get update; \
 
 Install nginx
 
-```bash
+``` bash
 sudo apt install nginx
 
 sudo systemctl start nginx 
@@ -217,7 +217,7 @@ sudo systemctl start nginx
 
 Clone git Repository and Build project
 
-```bash
+``` bash
 git clone https://github.com/TheAxelander/OpenBudgeteer.git
 cd OpenBudgeteer/OpenBudgeteer.Blazor
 
@@ -226,7 +226,7 @@ dotnet publish -c Release --self-contained -r linux-x64
 
 Modify `appsettings.json` and enter credentials for a running database server, or use sqlite
 
-```bash
+``` bash
 cd bin/Release/net8.0/linux-x64/publish
 
 nano appsettings.json
@@ -234,7 +234,7 @@ nano appsettings.json
 
 For MySQL:
 
-```json
+``` json
 {
   "CONNECTION_PROVIDER": "mysql",
   "CONNECTION_DATABASE": "openbudgeteer",
@@ -256,7 +256,7 @@ For MySQL:
 
 For Postgres:
 
-```json
+``` json
 {
   "CONNECTION_PROVIDER": "postgresql",
   "CONNECTION_DATABASE": "openbudgeteer",
@@ -276,7 +276,7 @@ For Postgres:
 
 For Sqlite:
 
-```json
+``` json
 {
   "CONNECTION_PROVIDER": "sqlite", 
   "Logging": {
@@ -292,7 +292,7 @@ For Sqlite:
 
 Start server running on port 5000
 
-```bash
+``` bash
 ./OpenBudgeteer --urls http://0.0.0.0:5000
 ```
 

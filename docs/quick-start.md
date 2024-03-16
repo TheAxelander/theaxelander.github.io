@@ -4,7 +4,7 @@ For a quick ramp-up up of OpenBudgeteer using Docker and Sqlite use below comman
 
 ## docker run
 
-```bash
+``` bash
 docker run -d --name='openbudgeteer' \
     -e 'CONNECTION_PROVIDER'='SQLITE' \
     -e 'CONNECTION_DATABASE'='/srv/openbudgeteer.db' \
@@ -15,7 +15,7 @@ docker run -d --name='openbudgeteer' \
 
 ## docker compose
 
-```yml
+``` yml
 version: "3"
 
 services:
