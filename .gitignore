@@ -1,2 +1,6 @@
 ﻿/.idea/
+/bin
+/include
+/lib
+/lib64
 /site
