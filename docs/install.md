@@ -72,6 +72,25 @@ services:
       - app-global
       - db-internal
 
+  # optional
+  openbudgeteer-api:
+    image: axelander/openbudgeteer-api
+    container_name: openbudgeteer-api
+    ports:
+      - 8082:8080
+    environment:
+      - CONNECTION_PROVIDER=MYSQL
+      - CONNECTION_SERVER=openbudgeteer-mysql
+      - CONNECTION_PORT=3306
+      - CONNECTION_DATABASE=openbudgeteer
+      - CONNECTION_USER=openbudgeteer
+      - CONNECTION_PASSWORD=openbudgeteer
+    depends_on:
+      - mysql  
+    networks:
+      - app-global
+      - db-internal
+
   mysql:
     image: mysql
     container_name: openbudgeteer-mysql
@@ -128,6 +147,24 @@ services:
     networks:
       - app-global
       - db-internal
+
+  # optional
+  openbudgeteer-api:
+    image: axelander/openbudgeteer-api
+    container_name: openbudgeteer-api
+    ports:
+      - 8082:8080
+    environment:
+      - CONNECTION_PROVIDER=postgres
+      - CONNECTION_SERVER=openbudgeteer-db
+      - CONNECTION_DATABASE=openbudgeteer
+      - CONNECTION_USER=openbudgeteer
+      - CONNECTION_PASSWORD=My$uP3rS3creTanDstr0ngP4ssw0rD!!!
+    depends_on:
+      - db
+    networks:
+      - app-global
+      - db-internal    
 
   db:
     image: postgres:alpine
@@ -258,3 +295,5 @@ Start server running on port 5000
 ```bash
 ./OpenBudgeteer --urls http://0.0.0.0:5000
 ```
+
+For API, repeat the steps using `OpenBudgeteer/OpenBudgeteer.API` directory.
