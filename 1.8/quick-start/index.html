@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.13">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.23">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.7e359304.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.6543a935.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -241,17 +241,6 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Quick Start
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -261,43 +250,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#docker-run" class="md-nav__link">
-    <span class="md-ellipsis">
-      docker run
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#docker-compose" class="md-nav__link">
-    <span class="md-ellipsis">
-      docker compose
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -379,34 +331,46 @@
 
 
 <h1 id="quick-start">Quick Start</h1>
-<p>For a quick ramp-up up of OpenBudgeteer using Docker and Sqlite use below command or docker compose.</p>
-<h2 id="docker-run">docker run</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="o">=</span><span class="s1">&#39;openbudgeteer&#39;</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span>-e<span class="w"> </span><span class="s1">&#39;CONNECTION_PROVIDER&#39;</span><span class="o">=</span><span class="s1">&#39;SQLITE&#39;</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span>-e<span class="w"> </span><span class="s1">&#39;CONNECTION_DATABASE&#39;</span><span class="o">=</span><span class="s1">&#39;/srv/openbudgeteer.db&#39;</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span>-p<span class="w"> </span><span class="m">8080</span>:8080<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span>-v<span class="w"> </span><span class="s1">&#39;data:/srv&#39;</span><span class="w">  </span><span class="se">\</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="s1">&#39;axelander/openbudgeteer:latest&#39;</span><span class="w"> </span><span class="c1"># alternatively use &#39;pre-release&#39; or a specific version tag</span>
-</code></pre></div>
-<h2 id="docker-compose">docker compose</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>version: &quot;3&quot;
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>services:
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>  openbudgeteer:
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    image: axelander/openbudgeteer:latest
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    #image: axelander/openbudgeteer:pre-release
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    #image: axelander/openbudgeteer:1.7
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    container_name: openbudgeteer
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    ports:
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>      - 8080:8080
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    environment:
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>      - CONNECTION_PROVIDER=SQLITE
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>      - CONNECTION_DATABASE=/srv/openbudgeteer.db
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>    volumes:
-<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>      - data:/srv
-<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>
-<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>volumes:
-<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>  data:
+<p>For a quick ramp-up up of OpenBudgeteer using Docker and MariaDB use below docker compose.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>services:
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  openbudgeteer:
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    image: axelander/openbudgeteer:latest
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    #image: axelander/openbudgeteer:pre-release
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    #image: axelander/openbudgeteer:1.7
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    container_name: openbudgeteer
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    ports:
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>      - 8080:8080
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    environment:
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>      - CONNECTION_PROVIDER=mariadb
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>      - CONNECTION_SERVER=openbudgeteer-mariadb
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>      - CONNECTION_PORT=3306
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>      - CONNECTION_DATABASE=openbudgeteer
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>      - CONNECTION_USER=openbudgeteer
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>      - CONNECTION_PASSWORD=openbudgeteer
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>      - APPSETTINGS_CULTURE=en-US
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>      - APPSETTINGS_THEME=solar
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>    depends_on:
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>      - mariadb
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>  mariadb:
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>    image: mariadb
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>    container_name: openbudgeteer-mariadb
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>    environment:
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>      MYSQL_ROOT_PASSWORD: myRootPassword
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>    volumes:
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>      - data:/var/lib/mysql
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>  # optional    
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>  phpmyadmin:
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>    image: phpmyadmin/phpmyadmin
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>    container_name: openbudgeteer-phpmyadmin
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>    links:
+<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>      - mariadb:db
+<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>    ports:
+<a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>      - 8081:80
+<a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>
+<a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>volumes:
+<a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a>  data:
 </code></pre></div>
 
 
@@ -457,8 +421,10 @@
     <script id="__config" type="application/json">{"base": "..", "features": ["toc.integrate", "content.code.copy"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.c8d2eff1.min.js"></script>
+      <script src="../assets/javascripts/bundle.ebd0bdb7.min.js"></script>
       
     
-  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

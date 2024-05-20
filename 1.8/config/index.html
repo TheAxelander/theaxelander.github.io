@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.13">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.23">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.7e359304.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.6543a935.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -374,15 +374,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#sqlite" class="md-nav__link">
-    <span class="md-ellipsis">
-      Sqlite
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#mariadb-mysql" class="md-nav__link">
     <span class="md-ellipsis">
       MariaDB / MySQL
@@ -476,14 +467,6 @@
 </thead>
 <tbody>
 <tr>
-<td>TEMPDB</td>
-<td>SQLite in a temp file</td>
-</tr>
-<tr>
-<td>SQLITE</td>
-<td>SQLite. Use CONNECTION_DATABASE to specify file name</td>
-</tr>
-<tr>
 <td>MYSQL</td>
 <td>Oracle MySQL</td>
 </tr>
@@ -522,31 +505,31 @@
 <tr>
 <td>CONNECTION_SERVER</td>
 <td>IP Address/FQDN of the database Server</td>
-<td>MySQL, MariaDB, PostgreSQL (optional)</td>
+<td>All (optional)</td>
 <td>192.168.178.100</td>
 </tr>
 <tr>
 <td>CONNECTION_PORT</td>
 <td>Port to database Server</td>
-<td>MySQL, MariaDB, PostgreSQL (optional)</td>
+<td>All (optional)</td>
 <td>3306</td>
 </tr>
 <tr>
 <td>CONNECTION_DATABASE</td>
-<td>Database name, for SQLite full path and database name</td>
+<td>Database name</td>
 <td>All (optional)</td>
 <td>MyOpenBudgeteerDb</td>
 </tr>
 <tr>
 <td>CONNECTION_USER</td>
 <td>Database user</td>
-<td>MySQL, MariaDB, PostgreSQL (optional)</td>
+<td>All (optional)</td>
 <td>MyOpenBudgeteerUser</td>
 </tr>
 <tr>
 <td>CONNECTION_PASSWORD</td>
 <td>Database password</td>
-<td>MySQL, MariaDB, PostgreSQL (optional)</td>
+<td>All (optional)</td>
 <td>MyOpenBudgeteerPassword</td>
 </tr>
 <tr>
@@ -562,7 +545,6 @@
 <thead>
 <tr>
 <th>Variable</th>
-<th>SQLite</th>
 <th>MySQL, MariaDB</th>
 <th>PostgreSQL</th>
 </tr>
@@ -572,29 +554,24 @@
 <td>CONNECTION_PROVIDER</td>
 <td></td>
 <td></td>
-<td></td>
 </tr>
 <tr>
 <td>CONNECTION_SERVER</td>
-<td></td>
 <td>localhost</td>
 <td>localhost</td>
 </tr>
 <tr>
 <td>CONNECTION_PORT</td>
-<td></td>
 <td>3306</td>
 <td>5432</td>
 </tr>
 <tr>
 <td>CONNECTION_DATABASE</td>
-<td>/app/database/openbudgeteer.db</td>
 <td>openbudgeteer</td>
 <td>postgres</td>
 </tr>
 <tr>
 <td>CONNECTION_USER</td>
-<td></td>
 <td>openbudgeteer</td>
 <td>postgres</td>
 </tr>
@@ -602,11 +579,9 @@
 <td>CONNECTION_PASSWORD</td>
 <td></td>
 <td></td>
-<td></td>
 </tr>
 <tr>
 <td>CONNECTION_ROOT_PASSWORD</td>
-<td></td>
 <td></td>
 <td></td>
 </tr>
@@ -625,8 +600,6 @@
 </ul>
 <h3 id="database-setup">Database setup</h3>
 <p>For all supported database provider, once the database is running and accessible for OpenBudgeteer the required tables and initial data will be created on first startup. Database schema changes after an update will be also applied automatically. Please consider a database backup before updating OpenBudgeteer.</p>
-<h4 id="sqlite">Sqlite</h4>
-<p>Not much to do here. Set the path to the database file via <code>CONNECTION_DATABASE</code>, everything else will be done by OpenBudgeteer.</p>
 <h4 id="mariadb-mysql">MariaDB / MySQL</h4>
 <p>There are two ways to setup MariaDB / MySQL database:</p>
 <p>Use <code>CONNECTION_ROOT_PASSWORD</code> to let OpenBudgeteer create user and database. The variable is only required for the first startup and can be removed later.</p>
@@ -709,8 +682,10 @@
     <script id="__config" type="application/json">{"base": "..", "features": ["toc.integrate", "content.code.copy"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.c8d2eff1.min.js"></script>
+      <script src="../assets/javascripts/bundle.ebd0bdb7.min.js"></script>
       
     
-  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>
