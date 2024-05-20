@@ -8,40 +8,38 @@ Settings can be defined via Docker environment variables or via `appsettings.jso
 
 OpenBudgeteer requires a connection to a database which can be established using various variables. Currently, the following database servers are supported:
 
-| CONNECTION_PROVIDER | Database system                                      |
-|---------------------|------------------------------------------------------|
-| TEMPDB              | SQLite in a temp file                                |
-| SQLITE              | SQLite. Use CONNECTION_DATABASE to specify file name |
-| MYSQL               | Oracle MySQL                                         |
-| MARIADB             | MariaDB (FOSS MySQL fork)                            |
-| POSTGRES            | PostgreSQL                                           |
-| POSTGRESQL          | PostgreSQL                                           |
+| CONNECTION_PROVIDER | Database system           |
+|---------------------|---------------------------|
+| MYSQL               | Oracle MySQL              |
+| MARIADB             | MariaDB (FOSS MySQL fork) |
+| POSTGRES            | PostgreSQL                |
+| POSTGRESQL          | PostgreSQL                |
 
 Automated database initialization is only supported for MySQL, SQLite and MariaDB.
 
 ### Database variables
 
-| Variable                 | Description                                             | Used for database provider            | Example                 |
-|--------------------------|---------------------------------------------------------|---------------------------------------|-------------------------|
-| CONNECTION_PROVIDER      | Type of database that should be used                    | All (mandatory)                       | MYSQL                   |
-| CONNECTION_SERVER        | IP Address/FQDN of the database Server                  | MySQL, MariaDB, PostgreSQL (optional) | 192.168.178.100         |
-| CONNECTION_PORT          | Port to database Server                                 | MySQL, MariaDB, PostgreSQL (optional) | 3306                    |
-| CONNECTION_DATABASE      | Database name, for SQLite full path and database name   | All (optional)                        | MyOpenBudgeteerDb       |
-| CONNECTION_USER          | Database user                                           | MySQL, MariaDB, PostgreSQL (optional) | MyOpenBudgeteerUser     |
-| CONNECTION_PASSWORD      | Database password                                       | MySQL, MariaDB, PostgreSQL (optional) | MyOpenBudgeteerPassword |
-| CONNECTION_ROOT_PASSWORD | Root Password                                           | MySQL, MariaDB (optional)             | MyRootPassword          |
+| Variable                 | Description                            | Used for database provider   | Example                 |
+|--------------------------|----------------------------------------|------------------------------|-------------------------|
+| CONNECTION_PROVIDER      | Type of database that should be used   | All (mandatory)              | MYSQL                   |
+| CONNECTION_SERVER        | IP Address/FQDN of the database Server | All (optional)               | 192.168.178.100         |
+| CONNECTION_PORT          | Port to database Server                | All (optional)               | 3306                    |
+| CONNECTION_DATABASE      | Database name                          | All (optional)               | MyOpenBudgeteerDb       |
+| CONNECTION_USER          | Database user                          | All (optional)               | MyOpenBudgeteerUser     |
+| CONNECTION_PASSWORD      | Database password                      | All (optional)               | MyOpenBudgeteerPassword |
+| CONNECTION_ROOT_PASSWORD | Root Password                          | MySQL, MariaDB (optional)    | MyRootPassword          |
 
 ### Default values for variables
 
-| Variable                 | SQLite                         | MySQL, MariaDB | PostgreSQL |
-|--------------------------|--------------------------------|----------------|------------|
-| CONNECTION_PROVIDER      |                                |                |            |
-| CONNECTION_SERVER        |                                | localhost      | localhost  |
-| CONNECTION_PORT          |                                | 3306           | 5432       |
-| CONNECTION_DATABASE      | /app/database/openbudgeteer.db | openbudgeteer  | postgres   |
-| CONNECTION_USER          |                                | openbudgeteer  | postgres   |
-| CONNECTION_PASSWORD      |                                |                |            |
-| CONNECTION_ROOT_PASSWORD |                                |                |            |
+| Variable                 | MySQL, MariaDB | PostgreSQL |
+|--------------------------|----------------|------------|
+| CONNECTION_PROVIDER      |                |            |
+| CONNECTION_SERVER        | localhost      | localhost  |
+| CONNECTION_PORT          | 3306           | 5432       |
+| CONNECTION_DATABASE      | openbudgeteer  | postgres   |
+| CONNECTION_USER          | openbudgeteer  | postgres   |
+| CONNECTION_PASSWORD      |                |            |
+| CONNECTION_ROOT_PASSWORD |                |            |
 
 ### Additional comments
 
@@ -57,10 +55,6 @@ Automated database initialization is only supported for MySQL, SQLite and MariaD
 ### Database setup
 
 For all supported database provider, once the database is running and accessible for OpenBudgeteer the required tables and initial data will be created on first startup. Database schema changes after an update will be also applied automatically. Please consider a database backup before updating OpenBudgeteer.
-
-#### Sqlite
-
-Not much to do here. Set the path to the database file via `CONNECTION_DATABASE`, everything else will be done by OpenBudgeteer.
 
 #### MariaDB / MySQL
 

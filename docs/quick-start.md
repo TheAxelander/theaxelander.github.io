@@ -1,23 +1,8 @@
 ﻿# Quick Start
 
-For a quick ramp-up up of OpenBudgeteer using Docker and Sqlite use below command or docker compose.
+For a quick ramp-up up of OpenBudgeteer using Docker and MariaDB use below docker compose.
 
-## docker run
-
-``` bash
-docker run -d --name='openbudgeteer' \
-    -e 'CONNECTION_PROVIDER'='SQLITE' \
-    -e 'CONNECTION_DATABASE'='/srv/openbudgeteer.db' \
-    -p 8080:8080 \
-    -v 'data:/srv'  \
-    'axelander/openbudgeteer:latest' # alternatively use 'pre-release' or a specific version tag
-```
-
-## docker compose
-
-``` yml
-version: "3"
-
+```yml
 services:
   openbudgeteer:
     image: axelander/openbudgeteer:latest
@@ -27,10 +12,33 @@ services:
     ports:
       - 8080:8080
     environment:
-      - CONNECTION_PROVIDER=SQLITE
-      - CONNECTION_DATABASE=/srv/openbudgeteer.db
+      - CONNECTION_PROVIDER=mariadb
+      - CONNECTION_SERVER=openbudgeteer-mariadb
+      - CONNECTION_PORT=3306
+      - CONNECTION_DATABASE=openbudgeteer
+      - CONNECTION_USER=openbudgeteer
+      - CONNECTION_PASSWORD=openbudgeteer
+      - APPSETTINGS_CULTURE=en-US
+      - APPSETTINGS_THEME=solar
+    depends_on:
+      - mariadb
+      
+  mariadb:
+    image: mariadb
+    container_name: openbudgeteer-mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: myRootPassword
     volumes:
-      - data:/srv
+      - data:/var/lib/mysql
+      
+  # optional    
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: openbudgeteer-phpmyadmin
+    links:
+      - mariadb:db
+    ports:
+      - 8081:80
         
 volumes:
   data:
