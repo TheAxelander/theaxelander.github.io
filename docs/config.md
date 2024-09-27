@@ -15,7 +15,7 @@ OpenBudgeteer requires a connection to a database which can be established using
 | POSTGRES            | PostgreSQL                |
 | POSTGRESQL          | PostgreSQL                |
 
-Automated database initialization is only supported for MySQL, SQLite and MariaDB.
+Automated database initialization is supported for MySQL and MariaDB.
 
 ### Database variables
 

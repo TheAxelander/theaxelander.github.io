@@ -178,7 +178,7 @@ cd OpenBudgeteer/OpenBudgeteer.Blazor
 dotnet publish -c Release --self-contained -r linux-x64
 ```
 
-Modify `appsettings.json` and enter credentials for a running database server, or use sqlite
+Modify `appsettings.json` and enter credentials for a running database server
 
 ``` bash
 cd bin/Release/net8.0/linux-x64/publish
