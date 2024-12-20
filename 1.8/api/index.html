@@ -9,21 +9,25 @@
       
       
       
+        <link rel="prev" href="../config/">
       
       
-      <link rel="icon" href="/assets/images/favicon.png">
+        <link rel="next" href="../how-to/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.38">
     
     
       
-        <title>OpenBudgeteer Documentation</title>
+        <title>API - OpenBudgeteer Documentation</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.8c3ca2c6.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.8c3ca2c6.min.css">
       
         
-        <link rel="stylesheet" href="/assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -42,14 +46,23 @@
       
     
     
-    <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
     
-  </head>
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -64,6 +77,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#api" class="md-skip">
+          Skip to content
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -81,9 +99,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/." title="OpenBudgeteer Documentation" class="md-header__button md-logo" aria-label="OpenBudgeteer Documentation" data-md-component="logo">
+    <a href=".." title="OpenBudgeteer Documentation" class="md-header__button md-logo" aria-label="OpenBudgeteer Documentation" data-md-component="logo">
       
-  <img src="/assets/icon.png" alt="logo">
+  <img src="../assets/icon.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -100,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              API
             
           </span>
         </div>
@@ -177,9 +195,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="OpenBudgeteer Documentation" class="md-nav__button md-logo" aria-label="OpenBudgeteer Documentation" data-md-component="logo">
+    <a href=".." title="OpenBudgeteer Documentation" class="md-nav__button md-logo" aria-label="OpenBudgeteer Documentation" data-md-component="logo">
       
-  <img src="/assets/icon.png" alt="logo">
+  <img src="../assets/icon.png" alt="logo">
 
     </a>
     OpenBudgeteer Documentation
@@ -194,7 +212,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -214,7 +232,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/quick-start/" class="md-nav__link">
+      <a href="../quick-start/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -234,7 +252,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/install/" class="md-nav__link">
+      <a href="../install/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -254,7 +272,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/config/" class="md-nav__link">
+      <a href="../config/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -271,10 +289,19 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="/api/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -283,6 +310,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -294,7 +322,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/how-to/" class="md-nav__link">
+      <a href="../how-to/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -319,8 +347,52 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+
+<h1 id="api">API</h1>
+<p>To interact with the database via API, you need start a seperate API container like below:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>services:
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  openbudgeteer-api:
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    image: axelander/openbudgeteer-api
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    container_name: openbudgeteer-api
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    ports:
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>      - 8082:8080
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    environment:
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>      - CONNECTION_PROVIDER=mariadb
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>      - CONNECTION_SERVER=openbudgeteer-mariadb
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>      - CONNECTION_PORT=3306
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>      - CONNECTION_DATABASE=openbudgeteer
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>      - CONNECTION_USER=openbudgeteer
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>      - CONNECTION_PASSWORD=openbudgeteer
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    depends_on:
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>      - mariadb
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>  mariadb:
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>    image: mariadb
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>    container_name: openbudgeteer-mariadb
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>    environment:
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>      MYSQL_ROOT_PASSWORD: myRootPassword
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>    volumes:
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>      - data:/var/lib/mysql
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>volumes:
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>  data:
+</code></pre></div>
+<p>The documentation is accessible via Swagger UI using the entpoint <code>/swagger</code>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -354,11 +426,13 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "/", "features": ["toc.integrate", "content.code.copy"], "search": "/assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["toc.integrate", "content.code.copy"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
     
     
-      <script src="/assets/javascripts/bundle.d6f25eb3.min.js"></script>
+      <script src="../assets/javascripts/bundle.d6f25eb3.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>
