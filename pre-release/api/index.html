@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../install/">
+        <link rel="prev" href="../config/">
       
       
-        <link rel="next" href="../api/">
+        <link rel="next" href="../how-to/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Configuration - OpenBudgeteer Documentation</title>
+        <title>API - OpenBudgeteer Documentation</title>
       
     
     
@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#configuration" class="md-skip">
+        <a href="#api" class="md-skip">
           Skip to content
         </a>
       
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Configuration
+              API
             
           </span>
         </div>
@@ -269,6 +269,26 @@
       
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../config/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -281,151 +301,7 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Configuration
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  <span class="md-ellipsis">
-    Configuration
-  </span>
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#database" class="md-nav__link">
-    <span class="md-ellipsis">
-      Database
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Database">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#supported-databases" class="md-nav__link">
-    <span class="md-ellipsis">
-      Supported databases
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#database-variables" class="md-nav__link">
-    <span class="md-ellipsis">
-      Database variables
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#default-values-for-variables" class="md-nav__link">
-    <span class="md-ellipsis">
-      Default values for variables
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#additional-comments" class="md-nav__link">
-    <span class="md-ellipsis">
-      Additional comments
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#database-setup" class="md-nav__link">
-    <span class="md-ellipsis">
-      Database setup
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Database setup">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#mariadb-mysql" class="md-nav__link">
-    <span class="md-ellipsis">
-      MariaDB / MySQL
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#postgresql" class="md-nav__link">
-    <span class="md-ellipsis">
-      PostgreSQL
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#app-settings" class="md-nav__link">
-    <span class="md-ellipsis">
-      App Settings
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../api/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -434,6 +310,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -473,186 +350,36 @@
                   
 
 
-<h1 id="configuration">Configuration</h1>
-<p>Settings can be defined via Docker environment variables or via <code>appsettings.json</code> file which is located in the root folder of the application.</p>
-<h2 id="database">Database</h2>
-<h3 id="supported-databases">Supported databases</h3>
-<p>OpenBudgeteer requires a connection to a database which can be established using various variables. Currently, the following database servers are supported:</p>
-<table>
-<thead>
-<tr>
-<th>CONNECTION_PROVIDER</th>
-<th>Database system</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>MYSQL</td>
-<td>Oracle MySQL</td>
-</tr>
-<tr>
-<td>MARIADB</td>
-<td>MariaDB (FOSS MySQL fork)</td>
-</tr>
-<tr>
-<td>POSTGRES</td>
-<td>PostgreSQL</td>
-</tr>
-<tr>
-<td>POSTGRESQL</td>
-<td>PostgreSQL</td>
-</tr>
-</tbody>
-</table>
-<p>Automated database initialization is only supported for MySQL, SQLite and MariaDB.</p>
-<h3 id="database-variables">Database variables</h3>
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Description</th>
-<th>Used for database provider</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>CONNECTION_PROVIDER</td>
-<td>Type of database that should be used</td>
-<td>All (mandatory)</td>
-<td>MYSQL</td>
-</tr>
-<tr>
-<td>CONNECTION_SERVER</td>
-<td>IP Address/FQDN of the database Server</td>
-<td>All (optional)</td>
-<td>192.168.178.100</td>
-</tr>
-<tr>
-<td>CONNECTION_PORT</td>
-<td>Port to database Server</td>
-<td>All (optional)</td>
-<td>3306</td>
-</tr>
-<tr>
-<td>CONNECTION_DATABASE</td>
-<td>Database name</td>
-<td>All (optional)</td>
-<td>MyOpenBudgeteerDb</td>
-</tr>
-<tr>
-<td>CONNECTION_USER</td>
-<td>Database user</td>
-<td>All (optional)</td>
-<td>MyOpenBudgeteerUser</td>
-</tr>
-<tr>
-<td>CONNECTION_PASSWORD</td>
-<td>Database password</td>
-<td>All (optional)</td>
-<td>MyOpenBudgeteerPassword</td>
-</tr>
-<tr>
-<td>CONNECTION_ROOT_PASSWORD</td>
-<td>Root Password</td>
-<td>MySQL, MariaDB (optional)</td>
-<td>MyRootPassword</td>
-</tr>
-</tbody>
-</table>
-<h3 id="default-values-for-variables">Default values for variables</h3>
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>MySQL, MariaDB</th>
-<th>PostgreSQL</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>CONNECTION_PROVIDER</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>CONNECTION_SERVER</td>
-<td>localhost</td>
-<td>localhost</td>
-</tr>
-<tr>
-<td>CONNECTION_PORT</td>
-<td>3306</td>
-<td>5432</td>
-</tr>
-<tr>
-<td>CONNECTION_DATABASE</td>
-<td>openbudgeteer</td>
-<td>postgres</td>
-</tr>
-<tr>
-<td>CONNECTION_USER</td>
-<td>openbudgeteer</td>
-<td>postgres</td>
-</tr>
-<tr>
-<td>CONNECTION_PASSWORD</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>CONNECTION_ROOT_PASSWORD</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3 id="additional-comments">Additional comments</h3>
-<ul>
-<li>The usage of <code>CONNECTION_ROOT_PASSWORD</code> is optional in case user and database for MariaDB or MySQL are not existing and should be created by OpenBudgeteer.</li>
-<li><code>CONNECTION_PROVIDER</code> is case-insensitive, so you can use for example <code>mysql</code> or <code>MYSQL</code></li>
-<li>Using MySQL, MariaDB or PostgreSQL parameter <code>CONNECTION_DATABASE</code> can have maximum lenght of 64 chars using below character sets:</li>
-<li><code>0-9</code></li>
-<li><code>a-z</code></li>
-<li><code>A-Z</code></li>
-<li><code>$</code>, <code>_</code></li>
-<li><code>-</code> (not for PostgreSQL)</li>
-</ul>
-<h3 id="database-setup">Database setup</h3>
-<p>For all supported database provider, once the database is running and accessible for OpenBudgeteer the required tables and initial data will be created on first startup. Database schema changes after an update will be also applied automatically. Please consider a database backup before updating OpenBudgeteer.</p>
-<h4 id="mariadb-mysql">MariaDB / MySQL</h4>
-<p>There are two ways to setup MariaDB / MySQL database:</p>
-<p>Use <code>CONNECTION_ROOT_PASSWORD</code> to let OpenBudgeteer create user and database. The variable is only required for the first startup and can be removed later.</p>
-<p>Alternative approach is to create user and database on your own. Important is that OpenBudgeteer has access full write access to the database as well as rights for changing the schema (like creating or changing tables).</p>
-<p>An easy way to do that would be to use something like <code>phpmyadmin</code>. Create a new user and ensure that you activate both options</p>
-<ul>
-<li>Create database with same name and grant all privileges.</li>
-<li>Grant all privileges on wildcard name (username_%).</li>
-</ul>
-<h4 id="postgresql">PostgreSQL</h4>
-<p>Please consider the container-per database PostgreSQL pattern and let container init take care of the database creation, or create the role and database yourself. In this case, the database created by you must be empty, the role must exist, and should have CREATE permission for all objects in the public schema of the target database.</p>
-<h2 id="app-settings">App Settings</h2>
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>APPSETTINGS_CULTURE</td>
-<td>Localization identifier to set things like Currency, Date and Number Format. Must be a BCP 47 language tag</td>
-<td>en-US</td>
-</tr>
-<tr>
-<td>APPSETTINGS_THEME</td>
-<td>Sets the <a href="https://bootswatch.com">Bootswatch</a> Theme that will be used.</td>
-<td>default</td>
-</tr>
-</tbody>
-</table>
+<h1 id="api">API</h1>
+<p>To interact with the database via API, you need start a seperate API container like below:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>services:
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  openbudgeteer-api:
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    image: axelander/openbudgeteer-api
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    container_name: openbudgeteer-api
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    ports:
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>      - 8082:8080
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    environment:
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>      - CONNECTION_PROVIDER=mariadb
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>      - CONNECTION_SERVER=openbudgeteer-mariadb
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>      - CONNECTION_PORT=3306
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>      - CONNECTION_DATABASE=openbudgeteer
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>      - CONNECTION_USER=openbudgeteer
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>      - CONNECTION_PASSWORD=openbudgeteer
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    depends_on:
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>      - mariadb
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>  mariadb:
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>    image: mariadb
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>    container_name: openbudgeteer-mariadb
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>    environment:
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>      MYSQL_ROOT_PASSWORD: myRootPassword
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>    volumes:
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>      - data:/var/lib/mysql
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>volumes:
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>  data:
+</code></pre></div>
+<p>The documentation is accessible via Swagger UI using the entpoint <code>/swagger</code>.</p>
 
 
 
