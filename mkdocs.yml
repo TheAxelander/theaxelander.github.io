@@ -4,6 +4,7 @@ nav:
     - Quick Start: quick-start.md  
     - Install: install.md
     - Configuration: config.md
+    - API: api.md
     - How to use: how-to.md  
 theme:
   name: material
