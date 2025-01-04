@@ -1,4 +1,4 @@
-# Configuration
+﻿# Configuration
 
 Settings can be defined via Docker environment variables or via `appsettings.json` file which is located in the root folder of the application.
 
@@ -15,7 +15,7 @@ OpenBudgeteer requires a connection to a database which can be established using
 | POSTGRES            | PostgreSQL                |
 | POSTGRESQL          | PostgreSQL                |
 
-Automated database initialization is only supported for MySQL, SQLite and MariaDB.
+Automated database initialization is supported for MySQL and MariaDB.
 
 ### Database variables
 

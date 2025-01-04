@@ -178,7 +178,7 @@ cd OpenBudgeteer/OpenBudgeteer.Blazor
 dotnet publish -c Release --self-contained -r linux-x64
 ```
 
-Modify `appsettings.json` and enter credentials for a running database server, or use sqlite
+Modify `appsettings.json` and enter credentials for a running database server
 
 ``` bash
 cd bin/Release/net8.0/linux-x64/publish
@@ -186,11 +186,11 @@ cd bin/Release/net8.0/linux-x64/publish
 nano appsettings.json
 ```
 
-For MySQL:
+For MariaDB:
 
 ``` json
 {
-  "CONNECTION_PROVIDER": "mysql",
+  "CONNECTION_PROVIDER": "mariadb",
   "CONNECTION_DATABASE": "openbudgeteer",
   "CONNECTION_SERVER": "192.168.178.100",
   "CONNECTION_PORT": "3306",
@@ -217,22 +217,6 @@ For Postgres:
   "CONNECTION_SERVER": "192.168.178.100",
   "CONNECTION_USER": "openbudgeteer",
   "CONNECTION_PASSWORD": "openbudgeteer",
-  "Logging": {
-    "LogLevel": {
-      "Default": "Information",
-      "Microsoft": "Warning",
-      "Microsoft.Hosting.Lifetime": "Information"
-    }
-  },
-  "AllowedHosts": "*"
-}
-```
-
-For Sqlite:
-
-``` json
-{
-  "CONNECTION_PROVIDER": "sqlite", 
   "Logging": {
     "LogLevel": {
       "Default": "Information",
