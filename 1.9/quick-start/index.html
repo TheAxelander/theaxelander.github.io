@@ -367,30 +367,31 @@
 <a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>      - CONNECTION_DATABASE=openbudgeteer
 <a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>      - CONNECTION_USER=openbudgeteer
 <a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>      - CONNECTION_PASSWORD=openbudgeteer
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>      - APPSETTINGS_CULTURE=en-US
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>      - APPSETTINGS_THEME=solar
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>    depends_on:
-<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>      - mariadb
-<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>
-<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>  mariadb:
-<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>    image: mariadb
-<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>    container_name: openbudgeteer-mariadb
-<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>    environment:
-<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>      MYSQL_ROOT_PASSWORD: myRootPassword
-<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>    volumes:
-<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>      - data:/var/lib/mysql
-<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>
-<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>  # optional    
-<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>  phpmyadmin:
-<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>    image: phpmyadmin/phpmyadmin
-<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>    container_name: openbudgeteer-phpmyadmin
-<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>    links:
-<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>      - mariadb:db
-<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>    ports:
-<a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>      - 8081:80
-<a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>
-<a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>volumes:
-<a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a>  data:
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>      - CONNECTION_ROOT_PASSWORD=myRootPassword # only required for initial DB creation
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>      - APPSETTINGS_CULTURE=en-US
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>      - APPSETTINGS_THEME=solar
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>    depends_on:
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>      - mariadb
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>  mariadb:
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>    image: mariadb
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>    container_name: openbudgeteer-mariadb
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>    environment:
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>      MYSQL_ROOT_PASSWORD: myRootPassword
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>    volumes:
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>      - data:/var/lib/mysql
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>  # optional    
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>  phpmyadmin:
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>    image: phpmyadmin/phpmyadmin
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>    container_name: openbudgeteer-phpmyadmin
+<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>    links:
+<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>      - mariadb:db
+<a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>    ports:
+<a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>      - 8081:80
+<a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>
+<a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a>volumes:
+<a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>  data:
 </code></pre></div>
 
 
