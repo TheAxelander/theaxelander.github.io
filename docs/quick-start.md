@@ -18,6 +18,7 @@ services:
       - CONNECTION_DATABASE=openbudgeteer
       - CONNECTION_USER=openbudgeteer
       - CONNECTION_PASSWORD=openbudgeteer
+      - CONNECTION_ROOT_PASSWORD=myRootPassword # only required for initial DB creation
       - APPSETTINGS_CULTURE=en-US
       - APPSETTINGS_THEME=solar
     depends_on:
