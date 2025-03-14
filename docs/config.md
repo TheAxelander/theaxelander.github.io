@@ -77,5 +77,5 @@ Please consider the container-per database PostgreSQL pattern and let container 
 
 | Variable            | Description                                                                                                | Default                 |
 |---------------------|------------------------------------------------------------------------------------------------------------|-------------------------|
-| APPSETTINGS_CULTURE | Localization identifier to set things like Currency, Date and Number Format. Must be a BCP 47 language tag | en-US                   |
-| APPSETTINGS_THEME   | Sets the [Bootswatch](https://bootswatch.com) Theme that will be used.                                     | default                 |
+| APPSETTINGS_CULTURE | Localization identifier to set things like Currency, Date and Number Format. Must be a BCP 47 language tag | `en-US`                 |
+| APPSETTINGS_THEME   | Sets light or dark mode as default                                                    | `dark` uses dark mode, every else light mode |
