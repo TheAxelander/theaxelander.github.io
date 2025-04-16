@@ -1,33 +1,12 @@
 ﻿# Install
 
-## Database
+## Database & Redis
 
-OpenBudgeteer requires a connection to a database. See [Config](config.md#database) for more details.
+OpenBudgeteer requires a connection to a database and to Redis. See [Database](config.md#database) and [Redis](config.md#redis) for more details.
 
 ## Docker
 
 You can use the pre-built Docker image from [Docker Hub](https://hub.docker.com/r/axelander/openbudgeteer).
-
-### docker run
-
-To start a container use a `docker run` command like below. Please note that user and database need to be available, otherwise the container will not work. See [Database](#database) for more details.
-
-``` bash
-docker run -d --name='openbudgeteer' \
-    -e 'CONNECTION_PROVIDER'='mariadb' \
-    -e 'CONNECTION_SERVER'='192.168.178.100' \
-    -e 'CONNECTION_PORT'='3306' \
-    -e 'CONNECTION_DATABASE'='MyOpenBudgeteerDb' \
-    -e 'CONNECTION_USER'='MyOpenBudgeteerUser' \
-    -e 'CONNECTION_PASSWORD'='MyOpenBudgeteerPassword' \
-    -e 'CONNECTION_MYSQL_ROOT_PASSWORD'='MyRootPassword' \
-    -p '6100:8080' \
-    'axelander/openbudgeteer'
-```
-
-If you don't change the Port Mapping you can access the App with Port `8080`. Otherwise like above example it can be accessed with Port `6100`
-
-### docker compose (recommended)
 
 Below an example how to deploy OpenBudgeteer together with MariaDB Server and phpMyAdmin for administration.  Please note that user and database need to be available, otherwise the container will not work. See [Database](#database) for more details.
 
@@ -45,10 +24,11 @@ services:
       - CONNECTION_DATABASE=openbudgeteer
       - CONNECTION_USER=openbudgeteer
       - CONNECTION_PASSWORD=openbudgeteer
+      - CONNECTION_REDIS_SERVER=openbudgeteer-redis
       - APPSETTINGS_CULTURE=en-US
-      - APPSETTINGS_THEME=dark
     depends_on:
       - mariadb
+      - redis
 
   # optional
   openbudgeteer-api:
@@ -72,7 +52,13 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: myRootPassword
     volumes:
-      - data:/var/lib/mysql
+      - db-data:/var/lib/mysql
+
+  redis:
+    image: redis
+    container_name: openbudgeteer-redis
+    volumes:
+      - redis-data:/data
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
@@ -83,7 +69,8 @@ services:
       - 8080:80
 
 volumes:
-  data:
+  db-data:
+  redis-data:
 ```
 
 Below another example how to deploy OpenBudgeteer together with PostgreSQL Server.
@@ -101,11 +88,12 @@ services:
       - CONNECTION_SERVER=openbudgeteer-db
       - CONNECTION_DATABASE=openbudgeteer
       - CONNECTION_USER=openbudgeteer
-      - CONNECTION_PASSWORD=My$uP3rS3creTanDstr0ngP4ssw0rD!!!
+      - CONNECTION_PASSWORD=openbudgeteer
+      - CONNECTION_REDIS_SERVER=openbudgeteer-redis
       - APPSETTINGS_CULTURE=en-US
-      - APPSETTINGS_THEME=dark
     depends_on:
       - db
+      - redis
 
   # optional
   openbudgeteer-api:
@@ -118,7 +106,7 @@ services:
       - CONNECTION_SERVER=openbudgeteer-db
       - CONNECTION_DATABASE=openbudgeteer
       - CONNECTION_USER=openbudgeteer
-      - CONNECTION_PASSWORD=My$uP3rS3creTanDstr0ngP4ssw0rD!!!
+      - CONNECTION_PASSWORD=openbudgeteer
     depends_on:
       - db
 
@@ -127,13 +115,20 @@ services:
     container_name: openbudgeteer-db
     environment:
       - POSTGRES_USER=openbudgeteer
-      - POSTGRES_PASSWORD=My$uP3rS3creTanDstr0ngP4ssw0rD!!!
+      - POSTGRES_PASSWORD=openbudgeteer
       - POSTGRES_DB=openbudgeteer
     volumes:
-      - data:/var/lib/postgresql/data
+      - db-data:/var/lib/postgresql/data
+
+  redis:
+    image: redis
+    container_name: openbudgeteer-redis
+    volumes:
+      - redis-data:/data
 
 volumes:
-  data:
+  db-data:
+  redis-data:
 ```
 
 ### Docker tags
@@ -148,17 +143,25 @@ In case you want to stick to a specific version there are also tags for each rel
 
 If you don't want to use Docker you can also build the project on your own and deploy it on a web server like nginx.
 
-Install .NET SDK 8 for your respective Linux distribution. See [here](https://docs.microsoft.com/en-us/dotnet/core/install/linux) for more details. Below example is for Debian 11
+Install .NET SDK 9 for your respective Linux distribution. See [here](https://docs.microsoft.com/en-us/dotnet/core/install/linux) for more details. Below example is for Debian 12
 
 ``` bash
-wget https://packages.microsoft.com/config/debian/11/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+wget https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
 rm packages-microsoft-prod.deb
 
-sudo apt-get update; \
-  sudo apt-get install -y apt-transport-https && \
-  sudo apt-get update && \
-  sudo apt-get install -y dotnet-sdk-8.0 
+sudo apt update; \
+  sudo apt install -y apt-transport-https && \
+  sudo apt update && \
+  sudo apt install -y dotnet-sdk-9.0 
+```
+
+Install Redis
+
+``` bash
+sudo apt install redis
+
+sudo systemctl start redis 
 ```
 
 Install nginx
@@ -173,59 +176,40 @@ Clone git Repository and Build project
 
 ``` bash
 git clone https://github.com/TheAxelander/OpenBudgeteer.git
+git checkout master
 cd OpenBudgeteer/OpenBudgeteer.Blazor
 
 dotnet publish -c Release --self-contained -r linux-x64
 ```
 
-Modify `appsettings.json` and enter credentials for a running database server
+Create a `.env` file enter credentials for a running database server
 
 ``` bash
-cd bin/Release/net8.0/linux-x64/publish
+cd bin/Release/net9.0/linux-x64/publish
 
-nano appsettings.json
+nano .env
 ```
 
 For MariaDB:
 
-``` json
-{
-  "CONNECTION_PROVIDER": "mariadb",
-  "CONNECTION_DATABASE": "openbudgeteer",
-  "CONNECTION_SERVER": "192.168.178.100",
-  "CONNECTION_PORT": "3306",
-  "CONNECTION_USER": "openbudgeteer",
-  "CONNECTION_PASSWORD": "openbudgeteer",
-  "CONNECTION_ROOT_PASSWORD": "myRootPassword",
-  "Logging": {
-    "LogLevel": {
-      "Default": "Information",
-      "Microsoft": "Warning",
-      "Microsoft.Hosting.Lifetime": "Information"
-    }
-  },
-  "AllowedHosts": "*"
-}
+``` ini
+CONNECTION_PROVIDER=mariadb
+CONNECTION_SERVER=192.168.178.100
+CONNECTION_PORT=3306
+CONNECTION_DATABASE=openbudgeteer
+CONNECTION_USER=openbudgeteer
+CONNECTION_PASSWORD=openbudgeteer
+CONNECTION_ROOT_PASSWORD=myRootPassword
 ```
 
 For Postgres:
 
-``` json
-{
-  "CONNECTION_PROVIDER": "postgresql",
-  "CONNECTION_DATABASE": "openbudgeteer",
-  "CONNECTION_SERVER": "192.168.178.100",
-  "CONNECTION_USER": "openbudgeteer",
-  "CONNECTION_PASSWORD": "openbudgeteer",
-  "Logging": {
-    "LogLevel": {
-      "Default": "Information",
-      "Microsoft": "Warning",
-      "Microsoft.Hosting.Lifetime": "Information"
-    }
-  },
-  "AllowedHosts": "*"
-}
+``` ini
+CONNECTION_PROVIDER=postgresql
+CONNECTION_SERVER=192.168.178.100
+CONNECTION_DATABASE=openbudgeteer
+CONNECTION_USER=openbudgeteer
+CONNECTION_PASSWORD=openbudgeteer
 ```
 
 Start server running on port 5000

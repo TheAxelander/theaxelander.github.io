@@ -19,10 +19,12 @@ services:
       - CONNECTION_USER=openbudgeteer
       - CONNECTION_PASSWORD=openbudgeteer
       - CONNECTION_ROOT_PASSWORD=myRootPassword # only required for initial DB creation
+      - CONNECTION_REDIS_SERVER=openbudgeteer-redis
       - APPSETTINGS_CULTURE=en-US
-      - APPSETTINGS_THEME=dark
+      - APPSETTINGS_DEMO_DATA=true # optional if you want to start with some example data
     depends_on:
       - mariadb
+      - redis
       
   mariadb:
     image: mariadb
@@ -30,7 +32,13 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: myRootPassword
     volumes:
-      - data:/var/lib/mysql
+      - db-data:/var/lib/mysql
+
+  redis:
+    image: redis
+    container_name: openbudgeteer-redis
+    volumes:
+      - redis-data:/data
       
   # optional    
   phpmyadmin:
@@ -42,5 +50,6 @@ services:
       - 8081:80
         
 volumes:
-  data:
+  db-data:
+  redis-data:
 ```
