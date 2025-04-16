@@ -402,6 +402,30 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#redis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Redis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Redis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#redis-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Redis variables
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#app-settings" class="md-nav__link">
     <span class="md-ellipsis">
       App Settings
@@ -474,7 +498,7 @@
 
 
 <h1 id="configuration">Configuration</h1>
-<p>Settings can be defined via Docker environment variables or via <code>appsettings.json</code> file which is located in the root folder of the application.</p>
+<p>Settings can be defined via Docker environment variables or via <code>.env</code> file which needs to be located in the root folder of the application.</p>
 <h2 id="database">Database</h2>
 <h3 id="supported-databases">Supported databases</h3>
 <p>OpenBudgeteer requires a connection to a database which can be established using various variables. Currently, the following database servers are supported:</p>
@@ -631,6 +655,48 @@
 </ul>
 <h4 id="postgresql">PostgreSQL</h4>
 <p>Please consider the container-per database PostgreSQL pattern and let container init take care of the database creation, or create the role and database yourself. In this case, the database created by you must be empty, the role must exist, and should have CREATE permission for all objects in the public schema of the target database.</p>
+<h2 id="redis">Redis</h2>
+<p>OpenBudgeteer requires a connection to Redis to store certain App settings (e.g. Color themes). The following options are availabe:</p>
+<h3 id="redis-variables">Redis variables</h3>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CONNECTION_REDIS_SERVER</td>
+<td>IP Address/FQDN of the Redis Server</td>
+<td>192.168.178.101</td>
+</tr>
+<tr>
+<td>CONNECTION_REDIS_PORT</td>
+<td>Port to Redis Server</td>
+<td>6379</td>
+</tr>
+<tr>
+<td>CONNECTION_REDIS_USER</td>
+<td>Redis user (if ACL is used)</td>
+<td>openbudgeteer-redis</td>
+</tr>
+<tr>
+<td>CONNECTION_REDIS_PASSWORD</td>
+<td>Redis password (if ACL is used)</td>
+<td>openbudgeteer-redis-pw</td>
+</tr>
+<tr>
+<td>CONNECTION_REDIS_PREFIX</td>
+<td>Redis Keys Prefix (if ACL is used)</td>
+<td>openbudgeteer</td>
+</tr>
+</tbody>
+</table>
+<p>If you use Redis ACL, your <code>users.acl</code> could then look like this:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>user openbudgeteer-redis +@all -@dangerous +info ~openbudgeteer:* on &gt;openbudgeteer-redis-pw
+</code></pre></div>
 <h2 id="app-settings">App Settings</h2>
 <table>
 <thead>
@@ -647,9 +713,9 @@
 <td><code>en-US</code></td>
 </tr>
 <tr>
-<td>APPSETTINGS_THEME</td>
-<td>Sets light or dark mode as default</td>
-<td><code>dark</code> uses dark mode, everything else light mode</td>
+<td>APPSETTINGS_DEMO_DATA</td>
+<td>Generate a set of initial data for demo purposes</td>
+<td><code>false</code></td>
 </tr>
 </tbody>
 </table>
