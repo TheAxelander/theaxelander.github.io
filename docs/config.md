@@ -1,6 +1,6 @@
 ﻿# Configuration
 
-Settings can be defined via Docker environment variables or via `appsettings.json` file which is located in the root folder of the application.
+Settings can be defined via Docker environment variables or via `.env` file which needs to be located in the root folder of the application.
 
 ## Database
 
@@ -73,9 +73,29 @@ An easy way to do that would be to use something like `phpmyadmin`. Create a new
 
 Please consider the container-per database PostgreSQL pattern and let container init take care of the database creation, or create the role and database yourself. In this case, the database created by you must be empty, the role must exist, and should have CREATE permission for all objects in the public schema of the target database.
 
+## Redis
+
+OpenBudgeteer requires a connection to Redis to store certain App settings (e.g. Color themes). The following options are availabe:
+
+### Redis variables
+
+| Variable                  | Description                         | Example                 |
+|---------------------------|-------------------------------------|-------------------------|
+| CONNECTION_REDIS_SERVER   | IP Address/FQDN of the Redis Server | 192.168.178.101         |
+| CONNECTION_REDIS_PORT     | Port to Redis Server                | 6379                    |
+| CONNECTION_REDIS_USER     | Redis user (if ACL is used)         | openbudgeteer-redis     |
+| CONNECTION_REDIS_PASSWORD | Redis password (if ACL is used)     | openbudgeteer-redis-pw  |
+| CONNECTION_REDIS_PREFIX   | Redis Keys Prefix (if ACL is used)  | openbudgeteer           |
+
+If you use Redis ACL, your `users.acl` could then look like this:
+
+```
+user openbudgeteer-redis +@all -@dangerous +info ~openbudgeteer:* on >openbudgeteer-redis-pw
+```
+
 ## App Settings
 
-| Variable            | Description                                                                                                | Default                 |
-|---------------------|------------------------------------------------------------------------------------------------------------|-------------------------|
-| APPSETTINGS_CULTURE | Localization identifier to set things like Currency, Date and Number Format. Must be a BCP 47 language tag | en-US                   |
-| APPSETTINGS_THEME   | Sets the [Bootswatch](https://bootswatch.com) Theme that will be used.                                     | default                 |
+| Variable | Description | Default  |
+|----------|-------------|----------|
+| APPSETTINGS_CULTURE | Localization identifier to set things like Currency, Date and Number Format. Must be a BCP 47 language tag | `en-US` |
+| APPSETTINGS_DEMO_DATA | Generate a set of initial data for demo purposes | `false` |
