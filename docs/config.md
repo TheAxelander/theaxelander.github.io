@@ -99,3 +99,7 @@ user openbudgeteer-redis +@all -@dangerous +info ~openbudgeteer:* on >openbudget
 |----------|-------------|----------|
 | APPSETTINGS_CULTURE | Localization identifier to set things like Currency, Date and Number Format. Must be a BCP 47 language tag | `en-US` |
 | APPSETTINGS_DEMO_DATA | Generate a set of initial data for demo purposes | `false` |
+| APPSETTINGS_AUTH_ENABLED | Enables Login with Username and Password | `false` |
+| APPSETTINGS_AUTH_USERNAME | Username for Login | |
+| APPSETTINGS_AUTH_PASSWORD | Password for Login | |
+| APPSETTINGS_AUTH_SESSION_DAYS | Number of days for how long the session token in Redis will be kept | `7` |
