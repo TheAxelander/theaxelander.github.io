@@ -40,9 +40,9 @@ services:
     volumes:
       - redis-data:/data
       
-  # optional    
+  # optional
   phpmyadmin:
-    image: phpmyadmin/phpmyadmin
+    image: phpmyadmin
     container_name: openbudgeteer-phpmyadmin
     links:
       - mariadb:db

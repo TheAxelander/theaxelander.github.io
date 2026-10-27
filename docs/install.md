@@ -61,7 +61,7 @@ services:
       - redis-data:/data
 
   phpmyadmin:
-    image: phpmyadmin/phpmyadmin
+    image: phpmyadmin
     container_name: openbudgeteer-phpmyadmin
     links:
       - mariadb:db
